@@ -30,4 +30,5 @@ elsif @memo_type == 2
   CSV.open(edit_data,'a') do|csv|
     csv << $stdin.readlines
   end
+  
 end
