@@ -6,7 +6,7 @@ puts "1 → 新規でメモを作成する / 2 → 既存のメモを編集す�
 if @memo_type == 1
   puts "拡張子を除いたファイルを入力してください"
 
-  new_title = gets + ".csv"
+  new_title = gets.chomp + ".csv" 
 
   puts "メモしたい内容を入力してください"
   puts "完了したらcontrol + Dおします"
@@ -18,7 +18,7 @@ if @memo_type == 1
 elsif @memo_type == 2
   puts "編集したいcsvファイルを入力してください"
 
-  edit_data = gets + ".csv"
+  edit_data = gets.chomp + ".csv"
 
   CSV.foreach(edit_data) do|row|
     puts row
@@ -30,5 +30,4 @@ elsif @memo_type == 2
   CSV.open(edit_data,'a') do|csv|
     csv << $stdin.readlines
   end
-  
 end
